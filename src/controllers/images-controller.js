@@ -1,6 +1,6 @@
 import imageGenSchema from '../schemas/image-gen-schema.js'
 import imageGenerator from '../services/image-generator.js'
-import { HTTP_STATUS_CODES } from '../constants.js'
+import { HTTP_STATUS_CODES } from '../utils/constants.js'
 
 export const generateImage = async (req, res, next) => {
     const isValid = imageGenSchema.validate(req.body)

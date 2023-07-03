@@ -2,6 +2,7 @@ import 'dotenv/config'
 import express from 'express'
 import { imagesRouter } from './src/routes/images-route.js'
 
+const PORT = process.env.APP_PORT || 3333
 const app = new express()
 
 app.use(express.json())
@@ -16,11 +17,11 @@ const errorSender = (err, req, res, next) => {
         next(err)
     }
 
-    res.status(err.statusCode).send(err.message).json()
+    res.status(err.statusCode).send({ message: err.message })
 }
-app.listen(process.env.APP_PORT, () => {
+app.listen(PORT, () => {
     // eslint-disable-next-line no-console
-    console.log(`[Server]: Running at http://localhost:${process.env.APP_PORT}`)
+    console.log(`[Server]: Running at http://localhost:${PORT}`)
 })
 
 app.use(imagesRouter)

@@ -1,5 +1,5 @@
 import joi from 'joi'
-import { STRING_MAX_LENGTH, STRING_MIN_LENGTH } from '../constants.js'
+import { STRING_MAX_LENGTH, STRING_MIN_LENGTH } from '../utils/constants.js'
 export default joi.object({
     title: joi
         .string()
